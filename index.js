@@ -166,7 +166,7 @@ const catsData = [
         isGif: true,
         image: "sad.gif",
         alt: "A cat looking sad",
-    },
+    }
 ]
 
 function getEmotionsArray(cats){
