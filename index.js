@@ -5,9 +5,11 @@ const getImgBtn = document.getElementById("get-image-btn")
 const gifsOnlyOption = document.getElementById("gifs-only-option")
 const memeModalInner = document.getElementById('meme-modal-inner')
 const memeModal = document.getElementById('meme-modal')
+const closeBtn = document.getElementById("meme-modal-close-btn")
 
 emotionsRadio.addEventListener("change", highlightCheckedOption)
 getImgBtn.addEventListener("click", renderCat)
+closeBtn.addEventListener("click", closeModal)
 
 function getEmotionsArray(cats){
     const emotionsArray = []
@@ -85,4 +87,8 @@ function renderCat() {
                                 >`
 
     memeModal.style.display = "flex"
+}
+
+function closeModal() {
+    memeModal.style.display = "none"
 }
