@@ -43,8 +43,8 @@ function highlightCheckedOption(e) {
 }
 
 function getMatchingCatsArray() {
-    const checkedRadioInput = document.querySelector("input[type='radio']:checked")
-    console.log(checkedRadioInput)
+    const selectedEmotion = document.querySelector("input[type='radio']:checked")
+    console.log(selectedEmotion)
 }
 
 emotionsRadio.addEventListener("change", highlightCheckedOption)
