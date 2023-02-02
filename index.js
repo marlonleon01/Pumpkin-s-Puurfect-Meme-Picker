@@ -3,6 +3,11 @@ import { catsData } from "./data.js"
 const emotionsRadio = document.getElementById("emotion-radios")
 const getImgBtn = document.getElementById("get-image-btn")
 const gifsOnlyOption = document.getElementById("gifs-only-option")
+const memeModalInner = document.getElementById('meme-modal-inner')
+const memeModal = document.getElementById('meme-modal')
+
+emotionsRadio.addEventListener("change", highlightCheckedOption)
+getImgBtn.addEventListener("click", renderCat)
 
 function getEmotionsArray(cats){
     const emotionsArray = []
@@ -60,9 +65,6 @@ function getMatchingCatsArray() {
     }
 }
 
-emotionsRadio.addEventListener("change", highlightCheckedOption)
-getImgBtn.addEventListener("click", renderCat)
-
 function getSingleCatObject() {
     const catsArray = getMatchingCatsArray()
     if (catsArray.length === 1) {
@@ -74,5 +76,13 @@ function getSingleCatObject() {
 }
 
 function renderCat() {
-    getSingleCatObject()
+    const catObject = getSingleCatObject()
+
+    memeModalInner.innerHTML = `<img 
+                                    class="cat-img" 
+                                    src="./images/${catObject.image}"
+                                    alt="${catObject.alt}"
+                                >`
+
+    memeModal.style.display = "flex"
 }
