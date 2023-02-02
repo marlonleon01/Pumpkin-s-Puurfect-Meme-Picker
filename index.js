@@ -34,6 +34,8 @@ function renderEmotionsRadio(cats) {
     emotionsRadio.innerHTML = radioItems
 }
 
+renderEmotionsRadio(catsData)
+
 function highlightCheckedOption(e) {
     const radios = document.getElementsByClassName("radio")
     for (let radio of radios) {
@@ -59,6 +61,18 @@ function getMatchingCatsArray() {
 }
 
 emotionsRadio.addEventListener("change", highlightCheckedOption)
-getImgBtn.addEventListener("click", getMatchingCatsArray)
+getImgBtn.addEventListener("click", renderCat)
 
-renderEmotionsRadio(catsData)
+function getSingleCatObject() {
+    const catsArray = getMatchingCatsArray()
+    if (catsArray.length === 1) {
+        return catsArray[0]
+    } else {
+        const randomNumber = Math.floor(Math.random() * catsArray.length)
+        return catsArray[randomNumber]
+    }
+}
+
+function renderCat() {
+    getSingleCatObject()
+}
